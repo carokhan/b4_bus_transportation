@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "148448104577",
+    "project_id": "b4-bus-transportation",
+    "storage_bucket": "b4-bus-transportation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148448104577:android:d61e2636a55362d3d1fd80",
+        "android_client_info": {
+          "package_name": "com.cit.b4_bus_transportation_student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148448104577-smnih8cht1av82sojfksnl0t29jtr4ru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cit.b4_bus_transportation_student",
+            "certificate_hash": "a08031dee7d7c411aed6991fc748221bc42a1ea1"
+          }
+        },
+        {
+          "client_id": "148448104577-i46bf8c1tivkoim5j4k504edh54gib4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2W6H27Vxw93ilQPr5NxlgH7nFh4A6MAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148448104577-i46bf8c1tivkoim5j4k504edh54gib4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
