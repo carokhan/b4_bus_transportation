@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
                   NetworkImage(UserController.user?.photoURL ?? ''),
             ),
             Text(UserController.user?.displayName ?? ''),
-            Text("Encoding data: " +"Unix Timestamp: " + DateTime.now().millisecondsSinceEpoch.toString() + "Firebase UID: " + (UserController.user?.uid ?? '') + "Display Name: " + (UserController.user?.displayName ?? '')),
+            Text("Encoding data: Unix Timestamp: ${DateTime.now().millisecondsSinceEpoch}Firebase UID: ${UserController.user?.uid ?? ''}Display Name: ${UserController.user?.displayName ?? ''}"),
             ElevatedButton(
                 onPressed: () async {
                   await UserController.signOut();
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
             RawMaterialButton(
             onPressed: () {
               setState(() {
-                data = "Unix Timestamp: " + DateTime.now().millisecondsSinceEpoch.toString() + "Firebase UID: " + (UserController.user?.uid ?? '') + "Display Name: " + (UserController.user?.displayName ?? '');
+                data = "Unix Timestamp: ${DateTime.now().millisecondsSinceEpoch}Firebase UID: ${UserController.user?.uid ?? ''}Display Name: ${UserController.user?.displayName ?? ''}";
               });
             },
             fillColor: Colors.black,
