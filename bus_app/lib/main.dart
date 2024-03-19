@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 void main() {
@@ -60,23 +59,35 @@ void _showSuccessDialog() {
         backgroundColor: Colors.green,
         title: Text(
           'Success',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 32,
+          ),
         ),
-        content: Text(
-          'QR Code Scanned Successfully!',
-          style: TextStyle(color: Colors.white),
+        content: Container(
+          height: 75,
+          child: Center(
+            child: Text(
+              'QR Code Scanned Successfully!',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
         ),
       );
     },
   );
 }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "QR Code Scanner",
+          "Student QR Code Scanner",
           style: TextStyle(color: Colors.white)
         ),
         backgroundColor: Colors.teal,
