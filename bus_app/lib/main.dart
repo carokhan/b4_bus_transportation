@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 void main() {
-  runApp(QRCodeApp());
+  runApp(const QRCodeApp());
 }
 
 class QRCodeApp extends StatelessWidget {
+  const QRCodeApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bus App QRScanner',
       theme: ThemeData(primarySwatch: Colors.indigo),
       debugShowCheckedModeBanner: false,
-      home: QRCodeWidget(),
+      home: const QRCodeWidget(),
     );
   }
 }
 
 class QRCodeWidget extends StatefulWidget {
-  const QRCodeWidget({Key? key}) : super(key: key);
+  const QRCodeWidget({super.key});
 
   @override
   State<QRCodeWidget> createState() => _QRCodeWidgetState();
@@ -42,29 +44,35 @@ void _onQRViewCreated(QRViewController controller) {
       setState(() {
         result = scanData.code!;
       });
-      _showSuccessDialog();
+      int nameIndex = scanData.code!.indexOf("Name:");
+      if (nameIndex != -1) {
+        String studentName = scanData.code!.substring(nameIndex + "Name:".length).trim();
+        _showSuccessDialog(studentName);
+      } else {
+        _showErrorDialog();
+      }
     }
   });
 }
 
-void _showSuccessDialog() {
+void _showSuccessDialog(String studentName) {
   showDialog(
     context: context,
     barrierDismissible: false,
     builder: (BuildContext context) {
-      Future.delayed(Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 2), () {
         Navigator.of(context).pop();
       });
       return AlertDialog(
         backgroundColor: Colors.green,
         title: Text(
-          'Success',
+           'Welcome $studentName!',
           style: TextStyle(
             color: Colors.white,
             fontSize: 32,
           ),
         ),
-        content: Container(
+        content: SizedBox(
           height: 75,
           child: Center(
             child: Text(
@@ -81,14 +89,47 @@ void _showSuccessDialog() {
   );
 }
 
+void _showErrorDialog() {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      Future.delayed(const Duration(seconds: 2), () {
+        Navigator.of(context).pop();
+      });
+      return AlertDialog(
+        backgroundColor: Colors.red,
+        title: Text(
+          'Error',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 32,
+          ),
+        ),
+        content: SizedBox(
+          height: 75,
+          child: Center(
+            child: Text(
+              'Invalid QR Code Format',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Student QR Code Scanner",
-          style: TextStyle(color: Colors.white)
+          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.teal,
       ),
@@ -120,7 +161,7 @@ void _showSuccessDialog() {
             child: Center(
               child: Text(
                 "Scan Result: $result",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
