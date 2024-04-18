@@ -41,8 +41,16 @@ dependencies:
   firebase_auth: ^4.17.5
   iconly: ^1.0.1
   qr_flutter: ^4.1.0
+  
 
   google_sign_in: any
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

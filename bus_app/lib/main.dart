@@ -58,25 +58,24 @@ void _onQRViewCreated(QRViewController controller) {
 void _showSuccessDialog(String studentName) {
   showDialog(
     context: context,
-    barrierDismissible: false,
     builder: (BuildContext context) {
-      Future.delayed(const Duration(seconds: 2), () {
+      Future.delayed(const Duration(seconds: 3), () {
         Navigator.of(context).pop();
       });
       return AlertDialog(
         backgroundColor: Colors.green,
         title: Text(
-           'Welcome $studentName!',
+           'QR Code Scanned Successfully!',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 32,
+            fontSize: 28,
           ),
         ),
         content: SizedBox(
           height: 75,
           child: Center(
             child: Text(
-              'QR Code Scanned Successfully!',
+              'Student Name: $studentName',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -92,7 +91,6 @@ void _showSuccessDialog(String studentName) {
 void _showErrorDialog() {
   showDialog(
     context: context,
-    barrierDismissible: false,
     builder: (BuildContext context) {
       Future.delayed(const Duration(seconds: 2), () {
         Navigator.of(context).pop();
